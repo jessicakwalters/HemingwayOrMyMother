@@ -3,23 +3,45 @@
   <head>
     <meta charset="utf-8">
     <title>Hemingway Or My Mother</title>
+    <link rel="stylesheet" href="grid.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1>Hemingway or My Mother?</h1>
-      <p>AN OLD NOTEBOOK.  FOLDED CORNERS HIDE PAGES OF PERFECT PROSE.  BUT THERE IS JUST ONE QUESTION...</p>
-      <button type="button" name="button">IS THIS HEMINGWAY OR MY MOTHER?</button>
+      <div>Tell me... who wrote the quotes that follow:</div>
+      <button class="row start-game" type="button" name="button">HEMINGWAY OR MY MOTHER?</button>
     </header>
-    <form class="" action="index.html" method="post">
-      <div class="">
-
+    <form class="row" action="index.html" method="post">
+      <div class="score">
+        0 / 8
       </div>
-      <label for="">
-        <input type="radio" name="" value="">
-      </label>
-      <label for="">
-        <input type="radio" name="" value="">
-      </label>
+      <div class="quote">
+        I thought the butter would do him good.
+      </div>
+      <div class="response">
+        <label for="">
+          <input type="radio" name="" value="">Hemingway
+        </label><br>
+        <label for="">
+          <input type="radio" name="" value="">My Mother
+        </label><br>
+      </div>
+      <button class="row view_answer" type="button" name="button">See who won the bullfight</button>
+      <div class="correct_response">
+        CORRECT RESPONSE GOES HERE
+      </div>
+      <button class="row next_question" type="button" name="button">Another puzzle.</button>
+      <div class="question_number">
+        Question number: 1 of 8
+      </div>
     </form>
+    <section class="final">
+      <div class="final_score">
+        Final Score:
+        <p>If you want to play again, all you have to do is tell me... who wrote the quotes that follow:</p>
+      </div>
+      <button class="row start-game" type="button" name="button"> HEMINGWAY OR MY MOTHER?</button>
+    </section>
   </body>
 </html>
