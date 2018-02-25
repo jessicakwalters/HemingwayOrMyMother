@@ -7,16 +7,29 @@ body {
   background-color: #0A172D;
 }
 
+button:hover{
+  cursor: pointer;
+}
 
-header {
+input[type='submit']:hover{
+  cursor: pointer;
+}
+
+.start {
   margin-left: auto;
   margin-right: auto;
   margin-top: 15%;
   padding: 5%;
 }
 
+.intro {
+  color: #FFFFFF;
+  margin-bottom: 5%;
+}
+
 .score {
   text-align: center;
+  width: 50%;
 }
 
 .start-game {
@@ -26,22 +39,28 @@ margin-right: auto;
 background-color: #0A172D;
 border-color: #0A172D;
 color: #FFFFFF;
-padding: 10%;
-border-radius: 8px;
 font-size: 36px;
 }
 
-form {
+main {
+  position: fixed;
+  top:0;
+  width: 100%;
   background-color: #B5BECD;
   height: 100vh;
-
 }
 
-div {
+div, form {
   text-align: center;
   margin-top: 10%;
-  color: #4A4A4A;
+  color: #2E2E2E;
   font-size: 22px;
+}
+
+.final_score p {
+  color: #FFFFFF;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .score {
@@ -58,11 +77,12 @@ div {
 
 .quote {
   margin-top: 10%;
-
-
+  padding-left: 5%;
+  padding-right: 5%;
+  width: 100%;
 }
 
-.view_answer, .next_question {
+.view_answer_button, .next_question_button {
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -75,10 +95,29 @@ div {
   font-size: 22px;
 }
 
-.correct_response {
+.hide {
   display: none;
 }
 
-.question_number {
 
+input[type="radio"] {
+	-webkit-appearance: none;
+	border: 2px solid #FFFFFF;
+  border-radius: 3px;
+	background-color: #FFFFFF;
+	color: #FFFFFF;
+  margin-left: 20px;
+  margin-top: 2%;
+	width: 20px;
+	height: 20px;
+}
+
+input[type="radio"]::before {
+	content: "\2714";
+	padding-left: 2px;
+
+}
+
+input[type="radio"]:checked {
+	color: #000000;
 }
