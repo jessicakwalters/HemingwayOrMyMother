@@ -14,7 +14,7 @@ function Question(quote, author) {
   this.quote = quote;
   this.author = author;
   this.questionPush();
-}
+};
 
 //method to push question objects into questions array
 Question.prototype.questionPush = function () {
@@ -42,12 +42,12 @@ function startGame(){
     //display form
     askQuestion();
   });
-}
+};
 
 //function to clear radio buttons
 function clearCheckboxes() {
   $('input[name=answer]').prop('checked', false);
-}
+};
 
 //function to write new quote
 function displayQuote(){
@@ -55,43 +55,57 @@ function displayQuote(){
   $('.quote').append(`<p>${questions[i].quote}</p>`);
   renderScore();
   writeQuestionNumber();
-}
+};
 
 //function to write question
 function writeQuestionNumber() {
   $('.question_number').append(`<p>Question number: ${questionNumber} of 8</p>`)
-}
+};
 
-//display question logic
+//ask question logic
 function askQuestion(){
   if (i === 0) {
     //on the first load, display main
-  $('main').removeClass('hide');
+  show('main');
   //remove any children elements from the quote section
-  $('.quote').children().remove();
+  removeChildElements('.quote');
   //remove any children elements from the question number section
-  $('.question_number').children().remove();
+  removeChildElements('.question_number');
   //write the quote to the screen
   displayQuote();
   }
   //after the last quote is displayed
   else if (i === questions.length){
     //reveal the final score section
-    $('.final').removeClass('hide');
+    show('.final');
     //hide main section
-    $('main').addClass('hide');
+    hide('main');
     //show final score
     renderScore();
-    //reset all variables in case they want to play again
-    i = 0;
-    score = 0;
-    questionNumber = 1
-    //restart the game
+    resetGame();
     startGame();
   }
+  //if it's not the first or the last question, display the quote
   else {
   displayQuote();
   }
+};
+
+//function to hide an html element
+function hide(param){
+  $(param).addClass('hide');
+};
+
+//function to show an html element
+function show(param){
+  $(param).removeClass('hide');
+};
+
+//reset all variables in case they want to play again
+function resetGame(){
+  i = 0;
+  score = 0;
+  questionNumber = 1
 };
 
 //function to load/reload the score
@@ -100,68 +114,81 @@ function renderScore() {
   $('.score').append(`<p>Score: ${score} / 8</p>`);
 };
 
+//function to display response feedback
 function displayCorrectAnswer() {
   //hide the view answer button
-  $('.view_answer_button').addClass('hide');
+  hide('.view_answer_button');
   //add text that they answered correctly
   $('.show_correct_response').append(`<p>Yes! It was ${answer}!</p>`);
   //display div to show response
-  $('.show_correct_response').removeClass('hide');
+  show('.show_correct_response');
 };
 
+//function to display response feedback
 function displayIncorrectAnswer(){
   //hide the view answer button
-  $('.view_answer_button').addClass('hide');
+  hide('.view_answer_button');
   //add text that they answered incorrectly
   $('.show_correct_response').append(`<p>No. I'm afraid it wasn't ${answer}</p>`);
   //display div to show response
-  $('.show_correct_response').removeClass('hide');
-}
+  show('.show_correct_response');
+};
 
+//function to advance the question number
 function advanceToNextQuestion(){
   $('.next_question_button').removeClass('hide');
+  questionNumber++;
+  i++;
 };
-//collect answer
+
+//collect answer and determine if correct or incorrect
 function submitAnswer(){
   $('form').on('submit', event => {
     event.preventDefault();
     //record checked radio box value in variable
     answer = $('input[name=answer]:checked').val();
     //check to see if the answer is correct
-    if (answer === questions[i].author){
-      score++;
-      displayCorrectAnswer();
-      renderScore();
-      advanceToNextQuestion();
-    }
-    else {
-      displayIncorrectAnswer();
-      renderScore();
-      advanceToNextQuestion();
-    }
-    questionNumber++;
-    i++;
+    checkAnwer(answer);
   });
-}
+};
 
+function checkAnwer(answer){
+  if (answer === questions[i].author){
+    score++;
+    displayCorrectAnswer();
+    renderScore();
+    advanceToNextQuestion();
+  }
+  else {
+    displayIncorrectAnswer();
+    renderScore();
+    advanceToNextQuestion();
+  }
+};
 
+//function to remove appended elements
+function removeChildElements(param) {
+  $(param).children().remove();
+};
+
+//advance the user to the next question
 function nextQuestion(){
   $('.next_question_button').on('click', event => {
     //clear the answer
-    $('.show_correct_response').children().remove();
+    removeChildElements('.show_correct_response');
     //hide the answer section
-    $('.show_correct_response').addClass('hide');
+    hide('.show_correct_response');
     //hide the next question button
-    $('.next_question_button').addClass('hide');
+    hide('.next_question_button');
     //remove the quote from the quote section
-    $('.quote').children().remove();
+    removeChildElements('.quote');
     //remove the question number from the
-    $('.question_number').children().remove();
+    removeChildElements('.question_number');
     //display the view answer button
-    $('.view_answer_button').removeClass('hide');
+    show('.view_answer_button');
     askQuestion();
   })
-}
+};
 
 $(startGame);
 nextQuestion();
