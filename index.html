@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <title>Hemingway Or My Mother</title>
@@ -12,16 +12,16 @@
     crossorigin="anonymous"></script>
   </head>
   <body>
-    <section class="start">
-      <div class="intro">Tell me... who wrote the quotes that follow:</div>
+    <section class="start" role="region">
+      <div class="intro">Sometimes it's difficult to tell.  Was it</div>
       <button class="row start-game" type="button" name="button">HEMINGWAY OR MY MOTHER?</button>
     </section>
-    <main class="hide">
+    <main class="hide" role="main">
       <div class="score">
       </div>
       <div class="quote">
       </div>
-      <form class="row" action="#" >
+      <form class="row" action="#" method="post">
         <label for="answer">
             <input type="radio" name="answer" value="Hemingway" id="Hemingway">
             Hemingway</label>
@@ -34,17 +34,16 @@
       </form>
         <div class="show_correct_response hide">
         </div>
-        <button class="row next_question_button hide" type="button" name="button">Another puzzle.</button>
+        <button class="row next_question_button hide" type="button" name="button"> Moving on.</button>
         <div class="question_number">
-
         </div>
     </main>
-    <section class="final hide">
+    <section class="final hide" role="region">
       <div class="final_score">
-        <p>Your Final Score:<p>
+        <p>Well done.<p>
         <div class="score">
         </div>
-        <p>If you want to play again, all you have to do is tell me... who wrote the quotes that follow:</p>
+        <p>You can revisit the age old question... </p>
       </div>
       <button class="row start-game" type="button" name="button"> HEMINGWAY OR MY MOTHER?</button>
     </section>
