@@ -6,42 +6,49 @@
     <link rel="stylesheet" href="grid.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css?family=Lato|Open+Sans" rel="stylesheet">
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
   </head>
   <body>
-    <header>
-      <div>Tell me... who wrote the quotes that follow:</div>
+    <section class="start">
+      <div class="intro">Tell me... who wrote the quotes that follow:</div>
       <button class="row start-game" type="button" name="button">HEMINGWAY OR MY MOTHER?</button>
-    </header>
-    <form class="row" action="index.html" method="post">
+    </section>
+    <main class="hide">
       <div class="score">
-        0 / 8
       </div>
       <div class="quote">
-        I thought the butter would do him good.
       </div>
-      <div class="response">
-        <label for="">
-          <input type="radio" name="" value="">Hemingway
-        </label><br>
-        <label for="">
-          <input type="radio" name="" value="">My Mother
-        </label><br>
-      </div>
-      <button class="row view_answer" type="button" name="button">See who won the bullfight</button>
-      <div class="correct_response">
-        CORRECT RESPONSE GOES HERE
-      </div>
-      <button class="row next_question" type="button" name="button">Another puzzle.</button>
-      <div class="question_number">
-        Question number: 1 of 8
-      </div>
-    </form>
-    <section class="final">
+      <form class="row" action="#" >
+        <label for="answer">
+            <input type="radio" name="answer" value="Hemingway" id="Hemingway">
+            Hemingway</label>
+          <br>
+        <label for="answer">
+            <input type="radio" name="answer" value="Mother" id="Mother">
+            My Mother</label>
+          <br>
+        <input class="row view_answer_button" type="submit" value="See who won the bullfight">
+      </form>
+        <div class="show_correct_response hide">
+        </div>
+        <button class="row next_question_button hide" type="button" name="button">Another puzzle.</button>
+        <div class="question_number">
+
+        </div>
+    </main>
+    <section class="final hide">
       <div class="final_score">
-        Final Score:
+        <p>Your Final Score:<p>
+        <div class="score">
+        </div>
         <p>If you want to play again, all you have to do is tell me... who wrote the quotes that follow:</p>
       </div>
       <button class="row start-game" type="button" name="button"> HEMINGWAY OR MY MOTHER?</button>
     </section>
   </body>
+  <script src="app.js"></script>
+
 </html>
